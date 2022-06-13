@@ -7,9 +7,13 @@ import './style.css'
 export default function index() {
     return (
         <>
-            <Header />
-            <Body />
-            <Footer />
+            <div style={{
+                background: "linear-gradient(180deg, #127CC0 0%, #FFFFFF 100%)",
+            }}>
+                <Header />
+                <Body />
+                <Footer />
+            </div>
         </>
     )
 }
