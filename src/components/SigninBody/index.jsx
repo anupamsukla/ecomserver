@@ -4,6 +4,7 @@ import React from 'react'
 import './style.css'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Header() {
@@ -14,8 +15,8 @@ export default function Header() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const navigate = useNavigate()
     const onSubmit = async (event) => {
-        event.preventDefault();
         if (user !== "" && fname !== "" && email !== "" && password !== '') {
             let result = await fetch("https://ecomerce101.herokuapp.com/users/create", {
                 method: "post",
@@ -34,10 +35,18 @@ export default function Header() {
                 console.log(result.error)
                 setError(result.error)
             }
+            else {
+                navigate('/login')
+            }
+
+
+
         }
         else {
             setError("Please fill all necessary details")
         }
+
+
     }
 
 

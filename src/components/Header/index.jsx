@@ -6,7 +6,7 @@ export default function Header() {
         <>
             <div className="navbar">
                 <ul>
-                    <li><Link to="/">Products</Link></li>
+                    <li><Link to="/products">Products</Link></li>
                     <li><Link to="/updateproduct">Update Products</Link></li>
                     <li><Link to="/deleteproduct">Delete Products</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
