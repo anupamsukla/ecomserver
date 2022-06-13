@@ -17,6 +17,7 @@ export default function Header() {
     const [error, setError] = useState("")
     const navigate = useNavigate()
     const onSubmit = async (event) => {
+        event.preventDefault();
         if (user !== "" && fname !== "" && email !== "" && password !== '') {
             let result = await fetch("https://ecomerce101.herokuapp.com/users/create", {
                 method: "post",
@@ -35,18 +36,13 @@ export default function Header() {
                 console.log(result.error)
                 setError(result.error)
             }
-            else {
-                navigate('/login')
-            }
 
-
+            navigate('/login')
 
         }
         else {
             setError("Please fill all necessary details")
         }
-
-
     }
 
 
