@@ -5,6 +5,8 @@ import './style.css'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
 
 
 export default function Header() {
@@ -16,35 +18,29 @@ export default function Header() {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const navigate = useNavigate()
+    const data = JSON.stringify({
+        user_name: user,
+        first_name: fname,
+        lasr_name: lname,
+        email, password
+    })
     const onSubmit = async (event) => {
         event.preventDefault();
         if (user !== "" && fname !== "" && email !== "" && password !== '') {
-            let result = await fetch("https://ecomerce101.herokuapp.com/users/create", {
-                method: "post",
-                body: JSON.stringify({
-                    user_name: user,
-                    first_name: fname,
-                    lasr_name: lname,
-                    email, password
-                }),
+            const res = await axios.post('https://ecomerce101.herokuapp.com/users/create', data, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
+            }).then((res) => {
+                navigate('/login')
+            }).catch((error) => {
+                setError(error.response.data.error)
             });
-            result = await result.json();
-            if (result.error) {
-                console.log(result.error)
-                setError(result.error)
-            }
-
-            navigate('/login')
-
         }
         else {
             setError("Please fill all necessary details")
         }
     }
-
 
     return (
         <div style={{
