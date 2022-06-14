@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 
 import './style.css'
@@ -24,6 +24,24 @@ export default function Header() {
         lasr_name: lname,
         email, password
     })
+
+    useEffect(() => {
+        const auth = JSON.parse(localStorage.getItem("loginstatus"))
+
+        if (auth == null) {
+            localStorage.setItem("loginstatus", JSON.stringify({ user, 'status': false }))
+        }
+    }, [])
+
+    useEffect(() => {
+        const auth = JSON.parse(localStorage.getItem("loginstatus"))
+
+        if (auth.status) {
+            navigate('/')
+        }
+    }, [])
+
+
     const onSubmit = async (event) => {
         event.preventDefault();
         if (user !== "" && fname !== "" && email !== "" && password !== '') {
@@ -32,7 +50,9 @@ export default function Header() {
                     'Content-Type': 'application/json'
                 }
             }).then((res) => {
-                navigate('/login')
+                let status = true
+                localStorage.setItem("loginstatus", JSON.stringify({ user, status }))
+                navigate('/')
             }).catch((error) => {
                 setError(error.response.data.error)
             });
@@ -76,9 +96,8 @@ export default function Header() {
                     >Welcome</div>
                     <Box
                         component="form"
-
                         noValidate
-                        autoComplete="off"
+                        autoComplete="on"
                     >
                         <TextField
                             id="user"

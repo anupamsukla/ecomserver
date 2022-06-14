@@ -1,0 +1,20 @@
+.register {
+    border: 1px solid #127cc0;
+    box-sizing: border-box;
+    background: #f0f0f3;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 14px;
+    color: #127cc0;
+    width: 33%;
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.error-msg {
+    color: red;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 4px;
+}

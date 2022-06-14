@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 
 import './style.css'
@@ -14,6 +14,15 @@ export default function Header() {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const auth = JSON.parse(localStorage.getItem("loginstatus")) || ""
+
+        if (auth.status) {
+            navigate('/')
+        }
+    }, [])
+
     const onSubmit = async (event) => {
         // if (user !== "" && email !== "" && password !== '') {
         console.log("hello")
