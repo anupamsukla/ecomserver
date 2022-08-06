@@ -19,7 +19,7 @@ POST http://localhost:5800/signin
 content-type: application/json
 
 {
-    "email":"1@2.co1",
+    "email":"1@2.co12",
     "password":"1234256"
 
 }
