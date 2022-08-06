@@ -1,0 +1,41 @@
+@token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyZWI4NjEzZTA2YzA3Y2U1OGFlNmY3YyIsInVzZXJuYW1lIjoiYW51cGFtc2h1a2xhMSIsIm5hbWUiOiJhbnVwYW0xIiwibW9iaWxlIjoxMjM0NSwiZW1haWwiOiIxQDIuY28xIiwiZ2VuZGVyIjoiZmVtYWxlIiwicGFzc3dvcmQiOiIkMmIkMDgkUmprcEVuN05RUGJPQ2FmWG9HNzAuLlhpRHo4SnRuSkZjSy5zRFdzc1dPcm9YaVAyLnVQSDIiLCJ0b2tlbnMiOltdLCJjcmVhdGVkQXQiOiIyMDIyLTA4LTA0VDA4OjQwOjUxLjI3MFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA4LTA0VDA4OjQwOjUxLjI3MFoiLCJfX3YiOjB9LCJpYXQiOjE2NTk3MjkxMDJ9.imE4wr8kK6fWJag13a7yZbqEbJbjk79UmVtwvvzAkTQ'
+
+###
+//register
+POST http://localhost:5800/signup
+content-type: application/json
+
+{
+    "username":"anupamshukla12",
+    "name":"anupam1",
+    "mobile":"12345",
+    "email":"1@2.co12",
+    "gender":"female",
+    "password":"1234256"
+
+}
+###
+POST http://localhost:5800/signin
+content-type: application/json
+
+{
+    "email":"1@2.co1",
+    "password":"1234256"
+
+}
+###
+GET  http://localhost:5800/products?page=2&gender=allProducts&category=allCategory&sort=null&limit=2
+
+###
+
+GET http://localhost:5800/products/62ed5f055084c927bacfe1f0
+
+###
+GET http://localhost:5800/products/pd
+
+
+###
+
+
+
+
